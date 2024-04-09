@@ -1,0 +1,52 @@
+server:
+  port: 8090
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: api_route
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/**
+      default-filters:
+        - AddResponseHeader=source,zzy
+
+#        - id: add_request_header_route
+#          uri: http://localhost:8080
+#          predicates:
+#            - Path=/api/**
+#          filters:
+#              - AddRequestHeader=zzy, sb
+#              - AddRequestParameter=name, zzy
+#        - id: ingredients-fallback
+#          uri: http://localhost:9994
+#          predicates:
+#            - Path=/fallback
+#        - id: after_route
+#          uri: https://www.baidu.com/
+#          predicates:
+#            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+#        - id: after_route1
+#          uri: https://www.baidu.com/
+#          predicates:
+#            - Path=/api/**
+#        - id: after_route2
+#          uri: http://8.138.132.63
+#          predicates:
+#            - Path=/zzy/**
+#开启日志
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://localhost:8848
