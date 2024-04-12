@@ -1,4 +1,4 @@
-当然，请看以下的 Markdown 格式的项目概述和架构：
+
 
 ## 猪蹄接口平台
 
@@ -24,7 +24,6 @@
 
 #### 2.3 项目技术栈
 
-以下是您提供的 Java Spring Boot 相关技术和工具的列表，并使用 Markdown 格式进行了修改：
 
 - Java Spring Boot
 - MySQL 数据库
